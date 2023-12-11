@@ -8,9 +8,9 @@ from src.utils import save_object, evaluate_models
 
 from catboost import CatBoostRegressor
 from xgboost import XGBRegressor
-from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
 from sklearn.metrics import r2_score
 
@@ -43,6 +43,7 @@ class ModelTrainer():
                 "XGBRegressor": XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
+                "SVR": SVR()
             }
 
             parameters = {
@@ -77,15 +78,20 @@ class ModelTrainer():
                 },
                 "AdaBoost Regressor":{
                     'learning_rate':[.1,.01,0.5,.001],
-                    # 'loss':['linear','square','exponential'],
+                    'loss':['linear','square','exponential'],
                     'n_estimators': [8,16,32,64,128,256]
+                },
+                "SVR":{
+                    'tol': [1e-5,1e-05,0.00005],
+                    'gamma': ['auto'],
+                    'max_iter': [1000]
                 }
             }
 
             model_report = evaluate_models(
                 X_train=x_train, y_train=y_train, X_test=x_test, y_test=y_test,
                 models=models,
-                parameters=parameters
+                param=parameters
             )
 
             logging.info("Model Evaluation Completed")
