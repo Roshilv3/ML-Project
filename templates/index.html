@@ -1,1 +1,43 @@
-<h1>Welcome to the Student Maths Score Prediction</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Maths Marks Prediction</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: xx-large;
+    }
+
+    h1 {
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Maths Marks Prediction</h1>
+  <button onclick="navigateToHome()">Go To Prediction</button>
+
+  <script>
+    function navigateToHome() {
+      // Redirect to home.html
+      window.location.href = "/predictdata";
+    }
+  </script>
+</body>
+</html>

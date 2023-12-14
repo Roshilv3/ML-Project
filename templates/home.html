@@ -1,11 +1,40 @@
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Exam Performance Indicator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                background-color: #ffffff00;
+            }
+    
+            .login {
+                max-width: 650px;
+                margin: 10px auto;
+                padding: 50px;
+                border: 1px solid #ced4da;
+                border-radius: 10px;
+                background-color: #72dbe7;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            h1, h2 {
+                text-align: center;
+            }
+    
+            form {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
 <body>
     <div class="login">
        <h1>Student Exam Performance Indicator</h1>
    
        <form action="{{ url_for('predict_datapoint')}}" method="post">
         <h1>
-            <legend>Student Exam Performance Prediction</legend>
+            <legend>Maths Score Prediction</legend>
         </h1>
         <div class="mb-3">
             <label class="form-label">Gender</label>
@@ -105,7 +134,7 @@
         </div>
     </form>
     <h2>
-       THE  prediction is {{results}}
+       THE PREDICTION IS {{results}}    
     </h2>
    <body>
 </html>
